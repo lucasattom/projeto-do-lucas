@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "projeto-do-lucas-78f13": {
+      "hosting": {
+        "projeto-do-lucas": [
+          "projeto-do-lucas-78f13"
+        ]
+      }
+    }
+  }
+}

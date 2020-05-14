@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "projeto-do-lucas",
+      "public": "dist/projeto-do-lucas",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+<section fxLayout fxLayoutAlign="center" style="margin-top: 20px;">
+  <mat-card
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxFlex="400px"
+    color="warn"
+    style.backGround="white"
+  >
+    <mat-card-title>Faça seu cadastro</mat-card-title>
+    <mat-card-subtitle>Preencha os dados abaixo</mat-card-subtitle>
+    <mat-card-content style="width: 70%;">
+      <form
+        fxLayout="column"
+        (ngSubmit)="noCadastro()"
+        [formGroup]="formCad"
+        fxLayoutGap="15px"
+      >
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email" />
+          <mat-error *ngIf="formCad.get('email').invalid">Informe um email válido</mat-error>
+        </mat-form-field>
+        <div formGroupName="senhas">
+          <mat-form-field style="width: 100%;">
+            <input
+              matInput
+              type="password"
+              placeholder="Senha"
+              formControlName="senha"
+            />
+            <mat-error *ngIf="formCad.get('senhas.senha').invalid">Senha deve ter pelo menos 6 caracteres</mat-error>
+          </mat-form-field>
+          <mat-form-field style="width: 100%; margin-top: 15px;">
+            <input
+              matInput
+              type="password"
+              placeholder="Confirme sua senha"
+              formControlName="confSenha"
+            />
+            <mat-hint style="color:rgba(255, 0, 0, 0.699);"
+              *ngIf="
+                !(
+                  formCad.get('senhas.senha').errors ||
+                  formCad.get('senhas.confSenha').errors
+                ) &&
+                formCad.get('senhas').invalid &&
+                formCad.get('senhas.senha').touched &&
+                formCad.get('senhas.confSenha').touched
+              "
+              >Senhas devem ser iguais</mat-hint
+            >
+          </mat-form-field>
+        </div>
+        <button [disabled]="formCad.invalid" mat-raised-button color="primary">Cadastrar</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</section>
