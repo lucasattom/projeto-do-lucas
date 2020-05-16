@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './auth/auth.service';
 import { VerificarCadastroComponent } from './auth/verificar-cadastro/verificar-cadastro.component';
+import { ConteudoComponent } from './conteudo/conteudo.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { VerificarCadastroComponent } from './auth/verificar-cadastro/verificar-
     LoginComponent,
     CadastroComponent,
     WelcomeComponent,
-    VerificarCadastroComponent
+    VerificarCadastroComponent,
+    ConteudoComponent
   ],
   imports: [
     BrowserModule,

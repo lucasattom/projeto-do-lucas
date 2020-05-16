@@ -1,0 +1,11 @@
+img {
+    display: block;
+    width: 40px;
+    margin: 5px auto;
+    box-shadow: 0 5px 10px -7px #333333;
+    border-radius: 50%;
+  }
+
+  mat-form-field {
+    width: 90%;
+  }

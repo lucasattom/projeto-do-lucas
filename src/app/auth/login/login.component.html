@@ -1,1 +1,49 @@
-<p>login works!</p>
+<section fxLayoutAlign="center">
+  <mat-card
+    style="width: 450px;"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <mat-card-title>Faça o login</mat-card-title>
+    <mat-card-subtitle>Escolha uma das opções abaixo</mat-card-subtitle>
+    <mat-card-content>
+      <button mat-raised-button (click)="onGoogleLogin()" style="margin-bottom: 25px;">
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <img
+            src="../../../assets/google logo.png"
+            style="margin-left: 10px; margin-right: 10px;"
+          />
+          <div>
+            Faça login com sua conta Google
+          </div>
+        </div>
+      </button>
+      <div>
+        <mat-card-subtitle>Já é cadastrado? Faça o login com seus dados.</mat-card-subtitle>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" fxLayout="column" fxLayoutAlign="center center">
+          <mat-form-field>
+            <input
+              matInput
+              type="email"
+              name="email"
+              placeholder="Email"
+              ngModel
+              required
+              email
+            /> </mat-form-field
+          ><mat-form-field>
+            <input
+              matInput
+              type="password"
+              name="senha"
+              placeholder="Senha"
+              ngModel
+              required
+            />
+          </mat-form-field>
+          <button mat-button type="submit" color="primary">Entre agora</button>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</section>

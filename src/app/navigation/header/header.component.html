@@ -1,8 +1,8 @@
 <mat-toolbar color="primary">
   <div>Site do Lucas</div>
   <div fxFlex fxLayout fxLayoutGap="10px" fxLayoutAlign="flex-end center" >
-    <div><a routerLink="/login">Login</a></div>
-    <div class="cadastro" fxLayout="column" fxLayoutAlign="center center">
+    <div *ngIf="!authService.user"><a routerLink="/login">Login</a></div>
+    <div class="cadastro" fxLayout="column" fxLayoutAlign="center center" *ngIf="!authService.user">
       <div id="cad1">
         <span>Não é cadastrado?</span>
       </div>
@@ -10,5 +10,6 @@
         <a routerLink="/cadastro">Cadastre-se agora</a>
       </div>
     </div>
+    <div *ngIf="authService.user"><a (click)="onLogout()">Logout</a></div>
   </div>
 </mat-toolbar>
