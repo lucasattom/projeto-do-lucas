@@ -1,0 +1,40 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.colorCustomizations": {
+        "editorWhitespace.foreground": "#303030",
+        "editor.selectionBackground": "#633d3d",
+        "activityBar.activeBorder": "#ff0000",
+        "contrastActiveBorder": "#946666",
+        "list.activeSelectionBackground": "#646568",
+        "editor.background": "#000000",
+        "badge.background": "#000000",
+        "breadcrumb.background": "#000000",
+        "breadcrumbPicker.background": "#000000",
+        "sideBar.background": "#000000",
+        "activityBar.activeBackground": "#000000",
+        "activityBar.background": "#000000",
+        "activityBar.border": "#606060",
+        "sideBarSectionHeader.background": "#000000",
+        "tab.inactiveBackground":"#101010",
+    },
+    "editor.tokenColorCustomizationsExperimental": {
+        "class": {"fontStyle": "underline", "foreground": "#91ff00"},
+        "interface": {"fontStyle": "underline", "foreground": "#7ed146"},
+        "parameter": "#ff8800",
+        "property": "#6bd5ff",
+        
+    },
+    "editor.tokenColorCustomizations": {
+        "semanticHighlighting": true,
+        
+        // "types":{"foreground":  "#09ff00","fontStyle": "underline"}
+    },
+    "editor.codeActionsOnSave": {},
+    "workbench.colorTheme": "Monokai"
+}

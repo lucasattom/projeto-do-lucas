@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { AngularFireModule } from '@angular/fire'
 import { AngularFireAuthModule } from '@angular/fire/auth'
+import { AngularFirestoreModule } from '@angular/fire/firestore'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './navigation/header/header.component';
@@ -18,6 +19,12 @@ import { environment } from 'src/environments/environment';
 import { AuthService } from './auth/auth.service';
 import { VerificarCadastroComponent } from './auth/verificar-cadastro/verificar-cadastro.component';
 import { ConteudoComponent } from './conteudo/conteudo.component';
+import { NavigationService } from './navigation/navigation.service';
+import { DadosPessoaisComponent } from './conteudo/dados-pessoais/dados-pessoais.component';
+import { ConteudoService } from './conteudo/conteudo.service';
+import { EstadoComponent } from './conteudo/estado/estado.component';
+import { NgxsModule } from '@ngxs/store';
+import { ConteudoState } from './conteudo/conteudo.state';
 
 @NgModule({
   declarations: [
@@ -27,7 +34,9 @@ import { ConteudoComponent } from './conteudo/conteudo.component';
     CadastroComponent,
     WelcomeComponent,
     VerificarCadastroComponent,
-    ConteudoComponent
+    ConteudoComponent,
+    DadosPessoaisComponent,
+    EstadoComponent
   ],
   imports: [
     BrowserModule,
@@ -39,9 +48,11 @@ import { ConteudoComponent } from './conteudo/conteudo.component';
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    NgxsModule.forRoot([ConteudoState])
   ],
-  providers: [AuthService],
+  providers: [AuthService, NavigationService, ConteudoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

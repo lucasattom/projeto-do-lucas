@@ -1,4 +1,9 @@
 <mat-toolbar color="primary">
+  <div fxHide.gt-xs *ngIf="authService.user">
+    <button mat-icon-button (click)="onToggleSidenav()">
+       <mat-icon>menu</mat-icon>
+    </button>
+ </div>
   <div>Site do Lucas</div>
   <div fxFlex fxLayout fxLayoutGap="10px" fxLayoutAlign="flex-end center" >
     <div *ngIf="!authService.user"><a routerLink="/login">Login</a></div>

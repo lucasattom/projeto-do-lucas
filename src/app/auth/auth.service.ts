@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { auth } from 'firebase/app';
 import 'firebase/auth';
-import { take } from 'rxjs/operators'
+import { take } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
@@ -13,9 +13,10 @@ export class AuthService {
     'auth/email-already-in-use': 'Email informado já esté em uso',
     'auth/wrong-password': 'A senha informada está incorreta',
     'auth/user-not-found': 'Usuário não cadastrado',
-    'auth/network-request-failed': 'Sem rede, verifique sua conexão'
+    'auth/network-request-failed': 'Sem rede, verifique sua conexão',
   };
   user = null;
+  userID = null;
   // user$ = null;
 
   constructor(
@@ -27,8 +28,9 @@ export class AuthService {
   }
 
   initAuthState() {
-    this.auth.authState.subscribe(user => {
-      this.user = user
+    this.auth.authState.subscribe((user) => {
+      this.user = user;
+      if (user) this.userID = user.uid;
     });
   }
 
@@ -50,8 +52,9 @@ export class AuthService {
     this.auth
       .signInWithEmailAndPassword(email, senha)
       .then(() => {
-        this.auth.authState.pipe(take(1)).subscribe(user => {
+        this.auth.authState.pipe(take(1)).subscribe((user) => {
           this.user = user;
+          this.userID = user.uid;
           console.log(this.user);
           if (!this.user?.emailVerified) {
             this.logout();
@@ -75,6 +78,9 @@ export class AuthService {
     this.auth
       .signInWithPopup(new auth.GoogleAuthProvider())
       .then((result) => {
+        this.auth.authState.pipe(take(1)).subscribe((user) => {
+          this.userID = user.uid;
+        });
         // console.log(result);
         this.navegarAoLogin();
       })
@@ -97,11 +103,12 @@ export class AuthService {
   }
 
   navegarAoLogin() {
-    this.router.navigate(['conteudo'])
+    this.router.navigate(['conteudo']);
   }
 
   async logout() {
     await this.auth.signOut();
-    this.router.navigate(['login'])
+    this.user = null;
+    this.router.navigate(['login']);
   }
 }

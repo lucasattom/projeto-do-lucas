@@ -1,0 +1,12 @@
+<section fxLayout style="width: 100%; height: 100%;">
+    <div fxFlex="50">
+        <h2>Estado atual</h2>
+        <p>Nome: {{ nome }}</p>
+        <p>Sobrenome: </p>
+    </div>
+    <div fxFlex="50">
+        <h2>Alterações no estado</h2>
+        <input #nomeinput>
+        <button (click)="adicionaNome(nomeinput.value)">Adicionar nome</button>
+    </div>
+</section>
